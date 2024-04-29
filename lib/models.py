@@ -23,7 +23,6 @@ class Course:
             id INTEGER PRIMARY KEY,
             name TEXT
         )'''
-
         CURSOR.execute(sql)
         CONN.commit()
 
@@ -67,7 +66,9 @@ class Course:
 
         last_row_sql = 'SELECT * FROM courses ORDER BY id DESC LIMIT 1'
         last_row_tuple = CURSOR.execute(last_row_sql).fetchone()
-
+        
+        # import ipdb; ipdb.set_trace() 
+        #pause the code here, stop time
         self.id = last_row_tuple[0]
 
     # updates the row based on current attributes 
@@ -95,7 +96,8 @@ class Course:
         CURSOR.execute(sql, [self.id])
         CONN.commit()
 
-        self.id = None
+        self.id = None 
+        #THIS IS NOT IN THE DATABSE ANYMORE
 
     # --- JOIN METHODS --- #
 
